@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    <h1>Result</h1>
+    <img src="{{ url_for('uploaded_file', filename=result_image) }}" alt="Result Image"><br><br>
+    <h2>Prediction: {{ prediction }}</h2>
+    <a href="/">Back to Home</a>
+</body>
+</html>
