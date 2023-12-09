@@ -1,44 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Result</title>
+<title>Result</title>
     <style>
-        body {
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            color: black;
-            margin: 0;
-            padding: 0;
+        .jumbotron-fluid {
+            background-color: #79D2F7;
+            color: white;
+            border-radius: 10px 10px 10px 10px;
+            opacity: 90%;
+            margin-top: 0;
+            justify-content: center;
         }
 
         .jumbotron {
-            background-color: #d19aff;
-            color: white;
+            height: 97vh;
+            background-image: url('/static/img/Ventura.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: black;
             border-radius: 10px;
-            opacity: 0.9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
-
+    
         .container-fluid {
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 10px 10px 10px 10px;
         }
-
+    
         .col-md-4 {
             justify-content: center;
-            opacity: 0.9;
+            opacity: 90%;
         }
-
+    
         .judul-1 {
             color: black;
-            padding-top: 75px;
             font-size: 100px;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-weight: bolder;
             display: flex;
             justify-content: center;
         }
-
+    
         .judul-2 {
             color: black;
             padding-top: 10px;
@@ -48,51 +52,57 @@
             display: flex;
             justify-content: center;
         }
-
-        .col-lg-12 {
+    
+        .col-lg-12{
             padding-top: 75px;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             display: flex;
             justify-content: center;
         }
-
-        .container {
+    
+        .container{
             margin-top: -20px;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
 
-        /* Gaya untuk teks pada elemen yang Anda tambahkan */
-        h1,
-        h2,
-        a,
-        img {
+        .prediction{
             color: black;
-            text-align: center;
-            margin: 10px 0;
+            position: relative;
+            top: -30px;
+            left: 40px;
+        }
+
+        .result{
+            color: black;
+            position: relative;
+            top: 120px;
+            left: -25px;
+        }
+
+        .home {
+            position: relative;
+            justify-content: center;
+            top: 150px;
+            left: -69px;
         }
     </style>
-</head>
-
-<body>
-    <div class="jumbotron jumbotron-fluid text-center" style="height: auto; background-image: url('/static/img/Ventura.jpg'); background-size: cover; background-repeat: no-repeat;">
+    
+    <div class="jumbotron jumbotron-fluid text-center">
         <h1 class="judul-1">~ Hasil ~</h1>
-
-        <!-- Bagian Setelah Pemrosesan (After) -->
-        <div class="container-fluid mt-5">
-            <div class="jumbotron jumbotron-fluid text-center" style="background-image: url('/static/img/Background.jpg'); background-size: cover; background-repeat: no-repeat;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1>Result</h1>
-                            <h2>Prediction: {{ prediction }}</h2>
-                            <img src="{{ result_image }}" alt="Uploaded Image">
-                            <a href="/">Go to Home</a>
+                <div class="container-fluid mt-5">
+                    <div class="jumbotron jumbotron-fluid text-center" style="height: auto; background-image: url('/static/img/Background.jpg'); background-size: cover; background-repeat: no-repeat;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="prediction"><h2>Prediction: {{ prediction }}</h2></div>
+                                    <div class="home"><a href="/">Go to Home</a></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
 
 </html>
