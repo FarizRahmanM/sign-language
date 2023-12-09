@@ -1,12 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
     <title>Result</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .jumbotron {
+            background-color: #d19aff;
+            color: white;
+            border-radius: 10px;
+            opacity: 0.9;
+        }
+
+        .container-fluid {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .col-md-4 {
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        .judul-1 {
+            color: black;
+            padding-top: 75px;
+            font-size: 100px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bolder;
+            display: flex;
+            justify-content: center;
+        }
+
+        .judul-2 {
+            color: black;
+            padding-top: 10px;
+            font-size: 50px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bolder;
+            display: flex;
+            justify-content: center;
+        }
+
+        .col-lg-12 {
+            padding-top: 75px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            margin-top: -20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        /* Gaya untuk teks pada elemen yang Anda tambahkan */
+        h1,
+        h2,
+        a,
+        img {
+            color: black;
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Result</h1>
-    <img src="{{ url_for('uploaded_file', filename=result_image) }}" alt="Result Image"><br><br>
-    <h2>Prediction: {{ prediction }}</h2>
-    <a href="/">Back to Home</a>
+    <div class="jumbotron jumbotron-fluid text-center" style="height: auto; background-image: url('/static/img/Ventura.jpg'); background-size: cover; background-repeat: no-repeat;">
+        <h1 class="judul-1">~ Hasil ~</h1>
+
+        <!-- Bagian Setelah Pemrosesan (After) -->
+        <div class="container-fluid mt-5">
+            <div class="jumbotron jumbotron-fluid text-center" style="background-image: url('/static/img/Background.jpg'); background-size: cover; background-repeat: no-repeat;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1>Result</h1>
+                            <h2>Prediction: {{ prediction }}</h2>
+                            <img src="{{ result_image }}" alt="Uploaded Image">
+                            <a href="/">Go to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

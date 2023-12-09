@@ -11,6 +11,8 @@ app = Flask(__name__)
 alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y']
 model = load_model("sign_language6")
 
+
+
 def classify(image):
     image = cv2.resize(image, (28, 28))
     image = image.astype("float") / 255.0
@@ -44,7 +46,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('home.html')
 
 @app.route('/video_feed')
 def video_feed():
@@ -68,7 +70,7 @@ def upload_file():
             os.remove(file_path)  # Remove the uploaded file
 
             return render_template('result.html', prediction=alpha, result_image=result_image)
-    return render_template('index.html')
+    return render_template('home.html')
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
