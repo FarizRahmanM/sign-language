@@ -4,19 +4,66 @@
     <title>Sign Language Prediction</title>
     <script>
         function startCamera() {
-            document.getElementById('video_feed').src = "{{ url_for('start_video_feed') }}";
+            fetch('/video_feed') // Sending a request to the '/video_feed' route
+            .then(response => {
+                // Handling the response if needed
+                document.getElementById('video_feed').src = "/video_feed";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
 
         function stopCamera() {
             document.getElementById('video_feed').src = "";
         }
     </script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Arial, Helvetica, sans-serif;
+        }
+
+        #header {
+            background-color: #77D1F6;
+            height: 50px;
+            padding: 5px;
+            display: flex;
+            color: black;
+            padding-top: 20px;
+            font-size: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bolder;
+            justify-content: center;
+        }
+
+        #sidebar {
+            width: 50%;
+            height: 70%;
+            padding: 5px;
+            float: left;
+            background-color: lightgray;
+        }
+
+        .img-fluid {
+            float: left;
+            padding: 5px;
+            position: relative;
+            left: 50px;
+            top: 30px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sign Language Prediction</h1>
-    <button onclick="startCamera()">Start Camera</button>
-    <button onclick="stopCamera()">Stop Camera</button><br><br>
-    <br><br>
-    <img id="video_feed" src="" style="width: 640px; height: 480px;">
+    <div id="header">~ Realtime Fingerspelling Detection ~</div>
+    <div id="sidebar">
+        <h1>Sign Language Prediction</h1>
+        <button onclick="startCamera()">Start Camera</button>
+        <button onclick="stopCamera()">Stop Camera</button><br><br>
+        <div class="home"><a href="/">Go to Home</a></div>
+        <br><br>
+        <img id="video_feed" src="" style="width: 640px; height: 480px;">
+    </div>
+    <img class="img-fluid" src="/static/img/sign.png">
 </body>
 </html>

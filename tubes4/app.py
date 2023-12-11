@@ -55,6 +55,10 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def index():
     return render_template('home.html')
 
+@app.route('/start_video_feed')
+def start_video_feed():
+    return render_template('video_feed.html')
+
 @app.route('/video_feed')
 def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
